@@ -2,6 +2,8 @@ import GamesGrid from "@/components/GamesGrid/GamesGrid";
 import { getGames } from "@/lib/api/games";
 import { Text } from "@/components/ui/text";
 
+export const dynamic = 'force-dynamic'
+
 async function getInitialGames() {
   const response = await getGames({})
   return response
