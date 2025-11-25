@@ -1,7 +1,8 @@
 import GamesGrid from "@/components/GamesGrid/GamesGrid"
 import { getGames } from "@/lib/api/games"
 
-export default async function Page({ params }) {
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+export default async function Page({ params }: {params: any}) {
     const { genre } = params
 
     const response = await getGames({genre})

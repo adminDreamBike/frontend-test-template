@@ -100,7 +100,7 @@ const Dropdown = ({
   }, [isOpen]);
 
   const handleSelect = (item: string) => {
-    if (item.disabled) return;
+    // if (item.disabled) return;
 
     if (onChange) {
       onChange(item);
@@ -112,7 +112,6 @@ const Dropdown = ({
 
     setIsOpen(false);
   };
-  console.log('classname', className)
 
   return (
     <div className={cn("relative inline-block", className)} ref={dropdownRef}>
@@ -153,13 +152,11 @@ const Dropdown = ({
                   key={item}
                   type="button"
                   onClick={() => handleSelect(item)}
-                  disabled={item.disabled}
+                 
                   className={cn(
                     "w-full flex items-center gap-2 px-4 py-2 text-sm text-left transition-colors",
                     "hover:bg-gray-100 focus:bg-gray-100 focus:outline-none",
-                    isSelected && "bg-gray-50 font-medium",
-                    item.disabled &&
-                      "opacity-50 cursor-not-allowed hover:bg-transparent"
+                    isSelected && "bg-gray-50 font-medium",                    
                   )}
                 >
                     {/* {item.icon && <item.icon size={16} />} */}

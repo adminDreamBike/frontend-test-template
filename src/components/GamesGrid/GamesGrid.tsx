@@ -132,7 +132,7 @@ const GamesGrid = ({ data, filter = "" }: GamesGridProps) => {
         })}
       </div>
       {currentPage < totalPages && (
-        <Button isLoading={false} className="w-11" onClick={handleSeeMore}>
+        <Button isLoading={false} onClick={handleSeeMore}>
           See More
         </Button>
       )}

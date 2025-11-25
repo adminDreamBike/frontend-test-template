@@ -90,7 +90,8 @@ const Text = forwardRef<HTMLElement, TextProps>(
     },
     ref
   ) => {
-    const Component = as || getDefaultElement(textStyle);
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
+    const Component: any = as || getDefaultElement(textStyle);
 
     return createElement(
       Component,
