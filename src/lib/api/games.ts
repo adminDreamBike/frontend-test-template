@@ -14,6 +14,7 @@ async function fetchApi<T>(
   options?: RequestInit
 ): Promise<T> {
   try {
+    console.log('`${API_BASE_URL}${endpoint}`', `${API_BASE_URL}${endpoint}`)
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       headers: {
         "Content-type": "application/json",
