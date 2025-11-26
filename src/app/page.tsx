@@ -8,8 +8,7 @@ export const dynamic = 'force-dynamic'
 
 
 
-async function getInitialGames() {
-  console.log('process.env.NEXT_PUBLIC_API_URL ', process.env.NEXT_PUBLIC_API_URL )
+async function getInitialGames() {  
   const response = await getGames({})
   return response
 }
@@ -23,9 +22,7 @@ export default async function Home() {
         <Text textStyle="h2" className="text-3xl font-bold mb-8 px-8">
           TOP SELLERS
         </Text>
-        <Suspense>
-          <GamesGrid data={initialGames} />
-        </Suspense>
+        <GamesGrid data={initialGames} />
       </div>
     </main>
   );
