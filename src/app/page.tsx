@@ -1,6 +1,7 @@
 import GamesGrid from "@/components/GamesGrid/GamesGrid";
 import { getGames } from "@/lib/api/games";
 import { Text } from "@/components/ui/text";
+import { Suspense } from "react";
 
 export const dynamic = 'force-dynamic'
 
@@ -17,7 +18,9 @@ export default async function Home() {
         <Text textStyle="h2" className="text-3xl font-bold mb-8 px-8">
           TOP SELLERS
         </Text>
-        <GamesGrid data={initialGames} />
+        <Suspense>
+          <GamesGrid data={initialGames} />
+        </Suspense>
       </div>
     </main>
   );
