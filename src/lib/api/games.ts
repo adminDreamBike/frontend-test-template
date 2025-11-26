@@ -1,8 +1,8 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import { GamesApiResponse } from "../types";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:3001";
-
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+console.log('API_BASE_URL', API_BASE_URL)
 export class ApiError extends Error {
   constructor(message: string, public status: number, public data?: any) {
     super(message);
