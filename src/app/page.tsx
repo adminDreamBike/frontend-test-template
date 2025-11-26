@@ -9,6 +9,8 @@ async function getInitialGames() {
   const response = await getGames({})
   return response
 }
+
+console.log('process.env.NEXT_PUBLIC_API_URL ', process.env.NEXT_PUBLIC_API_URL )
 export default async function Home() {
   const initialGames = await getInitialGames()
 
