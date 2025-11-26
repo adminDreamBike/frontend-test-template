@@ -6,9 +6,10 @@ import { Suspense } from "react";
 export const dynamic = 'force-dynamic'
 
 
-console.log('process.env.NEXT_PUBLIC_API_URL ', process.env.NEXT_PUBLIC_API_URL )
+
 
 async function getInitialGames() {
+  console.log('process.env.NEXT_PUBLIC_API_URL ', process.env.NEXT_PUBLIC_API_URL )
   const response = await getGames({})
   return response
 }
