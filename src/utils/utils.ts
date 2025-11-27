@@ -6,13 +6,14 @@ export const cn = (...inputs: ClassValue[]) => {
 }
 
 export function getBaseUrl() {
-    if (typeof window !== 'undefined') {
-        return ''
-    }
-
-    if (process.env.VERCEL_URL) {
-        return `http://${process.env.VERCEL_URL}`
-    }
-
-    return `http://localhost:${process.env.PORT ?? 3000}`
+  // Client-side: use relative path
+  if (typeof window !== 'undefined') return '';
+  
+  // Server-side on Vercel: use VERCEL_URL
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  
+  // Local development
+  return 'http://localhost:3000';
 }
