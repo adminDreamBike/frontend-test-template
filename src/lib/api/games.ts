@@ -15,14 +15,21 @@ async function fetchApi<T>(
   options?: RequestInit
 ): Promise<T> {
   try {   
-    const headers: HeadersInit = {
-        "Content-type": "application/json",
-        ...options?.headers
+    const headers: Record<string, string> = {
+        "Content-type": "application/json"
     }
 
-    if (process.env.VERCEL_URL) {
-        headers['x-vercel-protection-bypass'] = process.env.VERCEL_AUTOMATION_BYPASS_SECRET || ''
+    if (options?.headers) {
+        const optionsHeaders = new Headers(options.headers)
+        optionsHeaders.forEach((value, key) => {
+            headers[key] = value
+        })
     }
+
+    if (process.env.VERCEL_URL && process.env.VERCEL_AUTOMATION_BYPASS_SECRET) {
+        headers['x-vercel-protection-bypass'] = process.env.VERCEL_AUTOMATION_BYPASS_SECRET
+    }
+    
     const response = await fetch(`${getBaseUrl()}${endpoint}`, {
       headers,
       ...options,
