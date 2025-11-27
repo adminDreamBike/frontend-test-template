@@ -18,7 +18,7 @@ export type GameGenre =
   // Single game interface
 export interface Game {
   id: string;
-  genre: GameGenre;
+  genre: string;
   image: string;
   name: string;
   description: string;
@@ -29,7 +29,7 @@ export interface Game {
 // API response interface
 export interface GamesApiResponse {
   games: Game[];
-  availableFilters: GameGenre[];
+  availableFilters: string[];
   totalPages: number;
   currentPage: number;
 }
